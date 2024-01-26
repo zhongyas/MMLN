@@ -85,11 +85,3 @@ python MAMLN/inference_huge_image.py \
 
 Due to some random operations in the training stage, reproduced results (run once) are slightly different from the reported in paper.
 
-
-
-
-
-
-
-
-## Reproduction Results
