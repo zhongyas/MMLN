@@ -72,3 +72,8 @@ python MAMLN/inference_huge_image.py \
 -c GeoSeg/config/vaihingen/***.py \
 -o fig_results/vaihingen/*** \
 -t 'lr' -ph 512 -pw 512 -b 2 -d "pv"
+```
+
+
+
+## Reproduction Results
