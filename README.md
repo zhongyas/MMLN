@@ -3,7 +3,7 @@
 
 Prepare the following folders to organize this repo:
 ```none
-├── MAMLN (code)
+├── MMLN (code)
 ├── pretrain_weights (save the pretrained weights like vit, swin, etc)
 ├── model_weights (save the model weights)
 ├── fig_results (save the masks predicted by models)
@@ -37,7 +37,7 @@ pip install -r GeoSeg/requirements.txt
 ## Training
 
 ```
-python MAMLN/train_supervision.py -c MAMLN/config/uavid/***.py
+python MMLN/train_supervision.py -c MMLN/config/uavid/***.py
 ```
 Use different **config** to train different models.
 
@@ -45,28 +45,28 @@ Use different **config** to train different models.
 
 For example:
 ```
-python MAMLN/loveda_test.py -c MAMLN/config/loveda/***.py -o fig_results/loveda/*** --rgb --val -t 'd4'
+python MMLN/loveda_test.py -c MMLN/config/loveda/***.py -o fig_results/loveda/*** --rgb --val -t 'd4'
 ```
 
 ## Testing
 
 **LoveDA**
 ```
-python MAMLN/loveda_test.py -c MAMLN/config/loveda/***.py -o fig_results/loveda/*** -t 'd4'
+python MMLN/loveda_test.py -c MMLN/config/loveda/***.py -o fig_results/loveda/*** -t 'd4'
 ```
 
 **UAVid**
 ```
-python MAMLN/inference_uavid.py \
+python MMLN/inference_uavid.py \
 -i 'data/uavid/uavid_test' \
--c MAMLN/config/uavid/***.py \
+-c MMLN/config/uavid/***.py \
 -o fig_results/uavid/*** \
 -t 'lr' -ph 1152 -pw 1024 -b 2 -d "uavid"
 ```
 
 ## Inference on huge remote sensing image
 ```
-python MAMLN/inference_huge_image.py \
+python MMLN/inference_huge_image.py \
 -i data/vaihingen/test_images \
 -c GeoSeg/config/vaihingen/***.py \
 -o fig_results/vaihingen/*** \
