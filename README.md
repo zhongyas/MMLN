@@ -81,11 +81,16 @@ python MMLN/inference_huge_image.py \
 ## Reproduction Results
 |    Method     |  Dataset  |  F1   |  OA   |  mIoU |model_weight|
 |:-------------:|:---------:|:-----:|:-----:|------:|---------:|
-|  MAMLN   | Vaihingen | 91.18 | 91.63 | 84.02 |[Quark Netdisk](https://pan.quark.cn/s/32266ef9bf21) : 1f29|
-|  MAMLN   |  Potsdam  | 93.37 | 91.95 | 87.77 |[Quark Netdisk](https://pan.quark.cn/s/dafc3fb8a887) : 3DTA|
-|  MAMLN   |  LoveDA   |   -   |   -   | 53.11 |[Quark Netdisk](https://pan.quark.cn/s/ecf76810a0f1) : RC25|
-|  MAMLN   |   UAVid   |   -   |   -   | 70.51 |[Quark Netdisk](https://pan.quark.cn/s/81bf81e07b54) : ejQa|
+|  MMLN   | Vaihingen | 91.18 | 91.63 | 84.02 |[Quark Netdisk](https://pan.quark.cn/s/32266ef9bf21) : 1f29|
+|  MMLN   |  Potsdam  | 93.37 | 91.95 | 87.77 |[Quark Netdisk](https://pan.quark.cn/s/dafc3fb8a887) : 3DTA|
+|  MMLN   |  LoveDA   |   -   |   -   | 53.11 |[Quark Netdisk](https://pan.quark.cn/s/ecf76810a0f1) : RC25|
+|  MMLN   |   UAVid   |   -   |   -   | 70.51 |[Quark Netdisk](https://pan.quark.cn/s/81bf81e07b54) : ejQa|
 
 
 Due to some random operations in the training stage, reproduced results (run once) are slightly different from the reported in paper.
 
+
+
+## Acknowledgement
+
+Thanks to the GeoSeg framework for the help of the above code implementation of this work, and to the hardware support provided by the Advanced Computing Center of China Three Gorges University.
