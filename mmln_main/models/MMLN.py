@@ -977,8 +977,6 @@ def get_incoherent_mask(input_masks, sfact):
     # print("count0:",count0)
     # print("count%:",count/count0)
 
-    
-
     return mask_uncertain
 
 
@@ -1204,6 +1202,7 @@ class Decoder(nn.Module):
         
         y_res4=F.softmax(y_res4,dim=1)
         y_res3=get_incoherent_mask(y_res4,2)
+        # y_res3=self.coaffinityat(y_res3.softmax(dim=1),res3_out.softmax(dim=1))
         y_res3=torch.cat([y_res3.softmax(dim=1),res3_out.softmax(dim=1)],dim=1)
         y_res3=self.conv1a1(y_res3)
         y_res3=self.convbnrelu(y_res3)
@@ -1211,6 +1210,7 @@ class Decoder(nn.Module):
         
         y_res3=F.softmax(y_res3,dim=1)
         y_res2=get_incoherent_mask(y_res3,2)
+        # y_res2=self.coaffinityat(y_res2.softmax(dim=1),res2_out.softmax(dim=1))
         y_res2=torch.cat([y_res2.softmax(dim=1),res2_out.softmax(dim=1)],dim=1)
         y_res2=self.conv1a1(y_res2)
         y_res2=self.convbnrelu(y_res2)
@@ -1218,6 +1218,7 @@ class Decoder(nn.Module):
         
         y_res2=F.softmax(y_res2,dim=1)
         y_res1=get_incoherent_mask(y_res2,2)
+        # y_res1=self.coaffinityat(y_res1.softmax(dim=1),res1_out.softmax(dim=1))
         y_res1=torch.cat([y_res1.softmax(dim=1),res1_out.softmax(dim=1)],dim=1)
         y_res1=self.conv1a1(y_res1)
         y_res1=self.convbnrelu(y_res1)
@@ -1240,7 +1241,7 @@ class Decoder(nn.Module):
                     nn.init.constant_(m.bias, 0)
 
 
-class MMCTLN(nn.Module):
+class MMLN(nn.Module):
 
     def __init__(self,
                  decode_channels=256,
@@ -1260,7 +1261,6 @@ class MMCTLN(nn.Module):
 
     def forward(self, x):
         h, w = x.size()[-2:]
-        # print("x.shape=",x.shape)#x.shape= torch.Size([4, 3, 512, 512])
         res1, res2, res3, res4 = self.backbone(x)
         x = self.decoder(res1, res2, res3, res4, h, w)
         return x
@@ -1268,7 +1268,7 @@ class MMCTLN(nn.Module):
 
 def mmctln_base(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_base.pth'):
-    model = MMCTLN(num_classes=num_classes,
+    model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
                          embed_dim=128,
                          depths=(2, 2, 18, 2),
@@ -1288,7 +1288,7 @@ def mmctln_base(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channe
 
 def mmctln_small(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_small.pth'):
-    model = MMCTLN(num_classes=num_classes,
+    model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
                          embed_dim=96,
                          depths=(2, 2, 18, 2),
@@ -1306,7 +1306,7 @@ def mmctln_small(pretrained=True, num_classes=6, freeze_stages=-1, decoder_chann
 
 def mmctln_tiny(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_tiny.pth'):
-    model = MMCTLN(num_classes=num_classes,
+    model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
                          embed_dim=96,
                          depths=(2, 2, 6, 2),
@@ -1322,8 +1322,8 @@ def mmctln_tiny(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channe
     return model
 
 if __name__ == '__main__':
-    model = MMCTLN()
-    # with open('ftunetformermodel.txt', 'w') as f:
+    model = MMLN()
+    # with open('model.txt', 'w') as f:
     #     print(model, file=f)
     # f.close()
     # print(model)
