@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
-from geoseg.losses import *
-from geoseg.datasets.vaihingen_dataset import *
-from geoseg.models.MMCTLN import mmctln_small
+from mmln_main.losses import *
+from mmln_main.datasets.vaihingen_dataset import *
+from mmln_main.models.MMCTLN import mmctln_small
 from catalyst.contrib.nn import Lookahead
 from catalyst import utils
 
