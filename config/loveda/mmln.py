@@ -1,8 +1,8 @@
 
 from torch.utils.data import DataLoader
-from geoseg.losses import *
-from geoseg.datasets.loveda_dataset import *
-from geoseg.models.MMCTLN import mmctln_small
+from mmln_main.losses import *
+from mmln_main.datasets.loveda_dataset import *
+from mmln_main.models.MMLN import mmln_small
 from catalyst.contrib.nn import Lookahead
 from catalyst import utils
 
@@ -36,7 +36,7 @@ strategy = None
 pretrained_ckpt_path = None
 resume_ckpt_path = None
 #  define the network
-net = mmctln_small(num_classes=num_classes)
+net = mmln_small(num_classes=num_classes)
 # define the loss
 # loss = UnetFormerLoss(ignore_index=ignore_index)
 loss = JointLoss(SoftCrossEntropyLoss(smooth_factor=0.05, ignore_index=ignore_index),
