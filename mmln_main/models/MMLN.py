@@ -1266,7 +1266,7 @@ class MMLN(nn.Module):
         return x
 
 
-def mmctln_base(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
+def mmln_base(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_base.pth'):
     model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
@@ -1286,7 +1286,7 @@ def mmctln_base(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channe
 
 
 
-def mmctln_small(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
+def mmln_small(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_small.pth'):
     model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
@@ -1304,7 +1304,7 @@ def mmctln_small(pretrained=True, num_classes=6, freeze_stages=-1, decoder_chann
     return model
 
 
-def mmctln_tiny(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
+def mmln_tiny(pretrained=True, num_classes=6, freeze_stages=-1, decoder_channels=256,
                   weight_path='pretrain_weights/stseg_tiny.pth'):
     model = MMLN(num_classes=num_classes,
                          freeze_stages=freeze_stages,
