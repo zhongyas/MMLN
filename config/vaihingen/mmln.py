@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
 from mmln_main.losses import *
 from mmln_main.datasets.vaihingen_dataset import *
-from mmln_main.models.MMCTLN import mmctln_small
+from mmln_main.models.MMLN import mmln_small
 from catalyst.contrib.nn import Lookahead
 from catalyst import utils
 
@@ -39,7 +39,7 @@ resume_ckpt_path = True
 resume_ckpt_path = '/data/xyc/cp/model_weights/vaihingen/qyunetformer_small_12_4/last.ckpt'
 
 #  define the network
-net = mmctln_small(num_classes=num_classes, decoder_channels=256)
+net = mmln_small(num_classes=num_classes, decoder_channels=256)
 
 # define the loss
 loss = JointLoss(SoftCrossEntropyLoss(smooth_factor=0.05, ignore_index=ignore_index),
