@@ -35,7 +35,7 @@ pip install -r GeoSeg/requirements.txt
 
 ## Data Preprocessing
 
-[Quark Netdisk](https://pan.quark.cn/s/78c2f448d9a7) : YyX7
+[Quark Netdisk](https://pan.quark.cn/s/f1c5ba1e2224) : aGvz
 
 
 ## Training
