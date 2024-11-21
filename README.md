@@ -31,7 +31,7 @@ pip install -r GeoSeg/requirements.txt
 
 ## Pretrained Weights
 
-[Quark Netdisk](https://pan.quark.cn/s/87234049aa7c) : jZSQ
+[Quark Netdisk](https://pan.quark.cn/s/089795c36acf) : 7zbh
 
 ## Data Preprocessing
 
